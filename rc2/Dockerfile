@@ -1,9 +1,9 @@
 FROM dleemoo/app-2.3.1:latest
 
-MAINTAINER Leonardo Lobo Lima <dleemoo@gmail.com>
+MAINTAINER Adimir Colen <adimircolen@gmail.com>
 
-ENV BUNDLER_VERSION=1.15.1 \
-    PG_DOWNLOAD_SHA256=a6856099959bfff7cf0889b0e637b0f04642e8a9e8cbfa3f92555a03ef3b2448
+# ENV BUNDLER_VERSION=1.15.1 \
+    # PG_DOWNLOAD_SHA256=a6856099959bfff7cf0889b0e637b0f04642e8a9e8cbfa3f92555a03ef3b2448
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -16,7 +16,7 @@ RUN set -ex \
   # sync debian and install app dependencies
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install nodejs yarn git python -y \
+  && apt-get install nodejs yarn git python imagemagick -y \
   # setup postgres client libs and headers
   && curl -sL http://ftp.postgresql.org/pub/source/v9.6.2/postgresql-9.6.2.tar.gz -o /tmp/postgresql.tar.gz \
   && echo "$PG_DOWNLOAD_SHA256 /tmp/postgresql.tar.gz" | sha256sum -c - \

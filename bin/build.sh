@@ -2,7 +2,7 @@
 
 root_dir=$(pwd)
 
-declare -a all_versions=(rc1 rc2)
+declare -a all_versions=(rc2)
 
 if [ -z "$1" ]; then
   declare -a list=(${all_versions[@]})
@@ -25,6 +25,6 @@ function build() {
 
 if [ ${#list[@]} -gt 0 ]; then
   for i in "${list[@]}"; do
-    build "${i}" "dleemoo/${i}"
+    build "${i}" "adimircolen/${i}"
   done
 fi
